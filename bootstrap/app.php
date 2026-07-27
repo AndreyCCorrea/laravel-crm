@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->append(CanInstall::class);
+        $middleware->trustProxies(at: '*');
 
         $middleware->encryptCookies(except: [
             'dark_mode',
